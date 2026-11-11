@@ -23,7 +23,7 @@ pip install -r requirements.txt
 ## Запуск
 
 ```bash
-pytest -v
+python -m pytest -v
 ```
 
 ## API
@@ -37,3 +37,13 @@ https://qa-scooter.praktikum-services.ru/docs/
 - `POST /api/v1/courier` — создание курьера;
 - `POST /api/v1/courier/login` — авторизация курьера;
 - `DELETE /api/v1/courier/{id}` — удаление курьера.
+
+## Результаты проверки
+
+Последний запуск: 2 passed, 1 failed, 2 errors.
+
+Запрос авторизации без поля password получил HTTP 504
+с текстом Service unavailable вместо ожидаемого HTTP 400.
+
+Также возникли ReadTimeout при удалении курьера и при
+авторизации курьера в подготовке следующего теста.

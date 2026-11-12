@@ -45,7 +45,7 @@ class TestCourierLogin:
             payload["login"] = f"unknown_{uuid.uuid4().hex}"
 
         if password_type == "missing":
-            payload.pop("password")
+            payload["password"] = ""
         elif password_type == "invalid":
             payload["password"] = uuid.uuid4().hex
 

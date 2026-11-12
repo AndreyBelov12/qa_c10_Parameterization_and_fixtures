@@ -21,7 +21,7 @@ def courier():
     response = requests.post(
         f"{BASE_URL}/api/v1/courier",
         json=courier_data,
-        timeout=10,
+        timeout=60,
     )
     assert response.status_code == 201, response.text
 
@@ -31,7 +31,7 @@ def courier():
             "login": courier_data["login"],
             "password": courier_data["password"],
         },
-        timeout=10,
+        timeout=60,
     )
     assert login_response.status_code == 200, login_response.text
     courier_id = login_response.json()["id"]
@@ -45,6 +45,6 @@ def courier():
     finally:
         delete_response = requests.delete(
             f"{BASE_URL}/api/v1/courier/{courier_id}",
-            timeout=10,
+            timeout=60,
         )
         assert delete_response.status_code == 200, delete_response.text

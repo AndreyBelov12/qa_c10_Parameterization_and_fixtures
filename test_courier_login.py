@@ -40,7 +40,7 @@ class TestCourierLogin:
         }
 
         if login_type == "missing":
-            payload.pop("login")
+            payload["login"] = ""
         elif login_type == "invalid":
             payload["login"] = f"unknown_{uuid.uuid4().hex}"
 
